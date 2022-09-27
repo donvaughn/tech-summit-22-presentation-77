@@ -1,0 +1,11 @@
+node_modules/
+coverage/
+__snapshots__/
+tmp/
+build/
+.yarn/
+.helm/
+*.min.js
+Dockerfile
+Jenkinsfile
+**/dist/**

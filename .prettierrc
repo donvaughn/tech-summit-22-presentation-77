@@ -1,0 +1,8 @@
+{
+  "singleQuote": true,
+  "arrowParens": "avoid",
+  "bracketSameLine": false,
+  "proseWrap": "always",
+  "jsxSingleQuote": false,
+  "quoteProps": "consistent"
+}
