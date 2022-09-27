@@ -70,7 +70,11 @@ export const getUpvotes = async (presentationId: string) => {
 
   return arweave.api
     .post('/graphql', gqlParams)
-    .then(async results => results.data.data.transactions.edges.map((edge: BlockweaveGqlEdge) => edge.node))
+    .then(async results => {
+      const edges = results.data.data?.transactions.edges || [];
+
+      return edges.map((edge: BlockweaveGqlEdge) => edge.node);
+    })
     .catch(err => {
       console.error('GraphQL query failed', err, transactionQuery);
     });

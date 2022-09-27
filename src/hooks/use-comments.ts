@@ -143,7 +143,8 @@ export const useComments = (presentationId: string) => {
     arweave.api
       .post('/graphql', gqlParams)
       .then(async (results: any) => {
-        const sortedEdges = results.data.data.transactions.edges.sort((a: BlockweaveGqlEdge, b: BlockweaveGqlEdge) => {
+        const edges = results.data?.data?.transactions?.edges || [];
+        const sortedEdges = edges.sort((a: BlockweaveGqlEdge, b: BlockweaveGqlEdge) => {
           if (!a.node.block?.timestamp) {
             return 1;
           } else if (!b.node.block?.timestamp) {

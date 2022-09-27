@@ -97,7 +97,7 @@ export function PresentationProfile() {
           <h1 className="text-3xl font-medium text-gray-700 uppercase">{presentationProfileData.title}</h1>
           {presentationProfileData.subtitle && <h3 className="font-medium text-gray-600 mt-3 mb-8">{presentationProfileData.subtitle}</h3>}
           {presentationProfileData.location && (
-            <p className="font-light text-gray-600 mt-3">
+            <div className="font-light text-gray-600 mt-3">
               {presentationProfileData.locationLink && (
                 <>
                   <a className="hover:underline" href={presentationProfileData.locationLink} target="_blank">
@@ -108,7 +108,7 @@ export function PresentationProfile() {
               )}
 
               {!presentationProfileData.locationLink && presentationProfileData.location}
-            </p>
+            </div>
           )}
 
           {presentationProfileData.presenter && (
