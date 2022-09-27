@@ -6,7 +6,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "arlocal": "arlocal",
-    "deploy": "arkb deploy ./build --wallet .keyfile.prod.json",
+    "deploy": "npm run build && arkb deploy ./build --wallet .keyfile.prod.json",
+    "deploy:firebase": "npm run build && firebase deploy",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
