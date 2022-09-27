@@ -17,11 +17,11 @@ export function Links() {
       <div className="border-t border-gray-200">
         <dl>
           {links.map((link, index) => (
-            <div className={`bg-${index % 2 === 0 ? 'white' : 'gray-50'} px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6`}>
+            <div key={index} className={`${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'} px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6`}>
               <dt className="text-sm font-bold text-gray-500 flex items-center">{link[0]}</dt>
               <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
                 {link[1].map((url: string, index) => (
-                  <div className={`${index && 'mt-2'}`}>
+                  <div className={`${index && 'mt-2'} hover:underline`}>
                     <a href={`https://${url}`}>{url}</a>
                   </div>
                 ))}

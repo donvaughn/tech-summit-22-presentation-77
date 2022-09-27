@@ -1,6 +1,6 @@
-import { arweave } from '../arweave-tasks/init-arweave';
+import { arweave } from '../config/init-arweave';
 import { useEffect, useState } from 'react';
-import { arweaveAccount } from '../arweave-tasks/init-arweave-account';
+import { arweaveAccount } from '../config/init-arweave-account';
 import { ArAccount } from 'arweave-account';
 import { APP_NAME, APP_VERSION } from '../api/send-app-transaction';
 import { TransactionType } from '../api/transaction-type';
@@ -121,7 +121,7 @@ const buildComment = async (node: BlockweaveNode): Promise<PresentationProfileCo
     if (comment.length <= MAX_MESSAGE_LENGTH) {
       await arweave.api
         .get(`/${node.id}`, { timeout: 10000 })
-        .then(resp => (comment.body = resp.data))
+        .then((resp: any) => (comment.body = resp.data))
         .catch(() => {
           comment.error = 'timeout loading data';
         });
@@ -133,7 +133,7 @@ const buildComment = async (node: BlockweaveNode): Promise<PresentationProfileCo
   return comment;
 };
 
-export const usePresentationComments = (presentationId: string) => {
+export const useComments = (presentationId: string) => {
   const [comments, setComments] = useState<PresentationProfileCommentType[]>([]);
   const transactionQuery = buildQueryComments({ presentationId });
   const gqlParams = {
@@ -142,7 +142,7 @@ export const usePresentationComments = (presentationId: string) => {
   const getComments = async () => {
     arweave.api
       .post('/graphql', gqlParams)
-      .then(async results => {
+      .then(async (results: any) => {
         const sortedEdges = results.data.data.transactions.edges.sort((a: BlockweaveGqlEdge, b: BlockweaveGqlEdge) => {
           if (!a.node.block?.timestamp) {
             return 1;
@@ -160,7 +160,7 @@ export const usePresentationComments = (presentationId: string) => {
 
         setComments(comments);
       })
-      .catch(err => {
+      .catch((err: any) => {
         console.error('GraphQL query failed', err, transactionQuery);
       });
   };

@@ -1,4 +1,4 @@
-import { PresentationProfileCommentType } from '../hooks/use-presentation-comments';
+import { PresentationProfileCommentType } from '../hooks/use-comments';
 import { useEffect } from 'react';
 import { AddComment } from './AddComment';
 import { PRESENTATION_ID } from './PresentationProfile';

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { arweaveWebWallet } from '../arweave-tasks/init-arweave-web-wallet';
+import { arweaveWebWallet } from '../config/init-arweave-web-wallet';
 
 interface Params {
   presentationId: string;

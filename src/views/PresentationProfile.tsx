@@ -1,7 +1,7 @@
 import { ProfileIcon } from './ProfileIcon';
 import { Comments } from './Comments';
 import { Thumb } from './Thumb';
-import { usePresentationComments } from '../hooks/use-presentation-comments';
+import { useComments } from '../hooks/use-comments';
 import { useUpvotes } from '../hooks/use-upvotes';
 import { useWallet } from '../hooks/use-wallet';
 import { Links } from './Links';
@@ -20,7 +20,7 @@ interface PresentationProfileData {
 const presentationProfileData: PresentationProfileData = {
   headerBg: 'assets/bg9.jpg',
   avatar: 'assets/bg4.jpg',
-  title: 'Arweave - the Future of Web?',
+  title: 'Arweave: the Future of Web?',
   subtitle: ' Blockchain technology powering decentralised data storage and access',
   description: `
     Dive into the Arweave blockchain (the Blockweave) and see how it can be used to deploy decentralized web applications
@@ -35,7 +35,7 @@ const presentationProfileData: PresentationProfileData = {
 export const PRESENTATION_ID = 'ae7f2b';
 
 export function PresentationProfile() {
-  const { comments, updateComments } = usePresentationComments(PRESENTATION_ID);
+  const { comments, updateComments } = useComments(PRESENTATION_ID);
   const { addUpvote, upvoteData } = useUpvotes(PRESENTATION_ID);
   const { isWalletConnected, connectWallet } = useWallet();
 
@@ -49,7 +49,7 @@ export function PresentationProfile() {
 
   return (
     <div className="lg:p-16">
-      <div className={`h-32 rounded-t-2xl overflow-hidden flex bg-black`}>
+      <div className={`h-32 lg:rounded-t-2xl overflow-hidden flex bg-black`}>
         {presentationProfileData.headerBg && (
           <img src={presentationProfileData.headerBg} alt="header background" className="opacity-75 -mt-20 w-[100%] object-cover object-center" />
         )}
@@ -91,7 +91,7 @@ export function PresentationProfile() {
           </div>
         </div>
         <div className="mt-20 text-center border-b pb-12">
-          <h1 className="text-4xl font-medium text-gray-700">{presentationProfileData.title}</h1>
+          <h1 className="text-3xl font-medium text-gray-700 uppercase">{presentationProfileData.title}</h1>
           {presentationProfileData.subtitle && <h3 className="font-medium text-gray-600 mt-3 mb-8">{presentationProfileData.subtitle}</h3>}
           {presentationProfileData.location && (
             <p className="font-light text-gray-600 mt-3">

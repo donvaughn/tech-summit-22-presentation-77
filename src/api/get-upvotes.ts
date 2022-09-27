@@ -1,7 +1,7 @@
 import { APP_NAME, APP_VERSION } from './send-app-transaction';
 import { TransactionType } from './transaction-type';
 import { UPVOTE_VERSION } from './save-upvote';
-import { arweave } from '../arweave-tasks/init-arweave';
+import { arweave } from '../config/init-arweave';
 import { BlockweaveGqlEdge } from './types/blockweave-gql-edge';
 
 interface BuildQueryParams {

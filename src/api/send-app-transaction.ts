@@ -1,4 +1,4 @@
-import { arweave } from '../arweave-tasks/init-arweave';
+import { arweave } from '../config/init-arweave';
 
 export type ArweaveTagList = { [k: string]: string };
 
