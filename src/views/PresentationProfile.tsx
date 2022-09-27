@@ -15,13 +15,14 @@ interface PresentationProfileData {
   location?: string;
   locationLink?: string;
   presenter?: string;
+  date?: string;
 }
 
 const presentationProfileData: PresentationProfileData = {
   headerBg: 'assets/bg9.jpg',
   avatar: 'assets/bg4.jpg',
   title: 'Arweave: the Future of Web?',
-  subtitle: ' Blockchain technology powering decentralised data storage and access',
+  subtitle: ' Blockchain technology powering decentralized data storage',
   description: `
     Dive into the Arweave blockchain (the Blockweave) and see how it can be used to deploy decentralized web applications
     and data assets that are accessible forever. Once deployed on Arweave, web content and data requires zero recurring costs or
@@ -30,6 +31,8 @@ const presentationProfileData: PresentationProfileData = {
   `,
   location: 'Herzogenaurach, Germany',
   locationLink: 'https://en.wikipedia.org/wiki/Herzogenaurach',
+  presenter: 'Donald Lee Vaughn',
+  date: 'September 28, 2022',
 };
 
 export const PRESENTATION_ID = 'ae7f2b';
@@ -59,11 +62,11 @@ export function PresentationProfile() {
           <div className="grid grid-cols-2 text-center order-last md:order-first mt-20 md:mt-0">
             <div>
               <p className="font-bold text-gray-700 text-xl">{upvoteData.length}</p>
-              <p className="text-gray-400">Upvotes</p>
+              <p className="text-gray-500">Upvotes</p>
             </div>
             <div>
               <p className="font-bold text-gray-700 text-xl">{comments.length}</p>
-              <p className="text-gray-400">Comments</p>
+              <p className="text-gray-500">Comments</p>
             </div>
           </div>
           <div className="relative">
@@ -96,9 +99,12 @@ export function PresentationProfile() {
           {presentationProfileData.location && (
             <p className="font-light text-gray-600 mt-3">
               {presentationProfileData.locationLink && (
-                <a href={presentationProfileData.locationLink} target="_blank">
-                  {presentationProfileData.location}
-                </a>
+                <>
+                  <a className="hover:underline" href={presentationProfileData.locationLink} target="_blank">
+                    {presentationProfileData.location}
+                  </a>
+                  <div>{presentationProfileData.date}</div>
+                </>
               )}
 
               {!presentationProfileData.locationLink && presentationProfileData.location}
@@ -107,18 +113,18 @@ export function PresentationProfile() {
 
           {presentationProfileData.presenter && (
             <>
-              <p className="mt-8 text-gray-500">presented by</p>
+              <p className="mt-8 text-gray-400">presented by</p>
               <p className="mt-2 text-gray-500">{presentationProfileData.presenter}</p>
             </>
           )}
         </div>
 
-        <div className="mt-12 flex flex-col justify-center">
-          <p className="text-gray-600 text-center font-light lg:px-16">{presentationProfileData.description}</p>
+        <div className="mt-14 flex flex-col justify-center">
+          <p className="text-gray-600 text-center font-light lg:px-24 ">{presentationProfileData.description}</p>
           {/*<button className="text-indigo-500 py-2 px-4  font-medium mt-4">Show more</button>*/}
         </div>
 
-        <div className="mt-24">
+        <div className="mt-14 mb-6">
           <Links />
         </div>
       </div>
