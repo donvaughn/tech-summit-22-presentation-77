@@ -22,7 +22,9 @@ export function Links() {
               <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
                 {link[1].map((url: string, index) => (
                   <div key={index} className={`${index && 'mt-2'} hover:underline`}>
-                    <a href={`https://${url}`}>{url}</a>
+                    <a href={`https://${url}`} target="_blank">
+                      {url}
+                    </a>
                   </div>
                 ))}
               </dd>
