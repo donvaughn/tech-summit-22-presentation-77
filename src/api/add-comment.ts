@@ -1,7 +1,7 @@
 import { sendAppTransaction } from './send-app-transaction';
 import { TransactionType } from './transaction-type';
 
-export const COMMENT_VERSION = '0.0.1-alpha-comment';
+export const COMMENT_VERSION = '0.0.2-alpha-comment';
 
 export async function addComment(comment: string, presentationId: string) {
   return sendAppTransaction(comment, {
